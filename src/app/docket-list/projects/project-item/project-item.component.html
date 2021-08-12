@@ -1,0 +1,6 @@
+<ion-item-sliding>
+  <ion-item lines="none" (click)="showTasks()">
+    <ion-icon slot="start" [style.--project-color]="project?.color"></ion-icon>
+    <ion-label>{{ project.title }}</ion-label>
+  </ion-item>
+</ion-item-sliding>

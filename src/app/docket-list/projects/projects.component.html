@@ -1,0 +1,6 @@
+<ion-list>
+  <ng-container *ngFor="let project of projects">
+    <app-project-item [project]="project"></app-project-item>
+  </ng-container>
+  <app-add-project></app-add-project>
+</ion-list>

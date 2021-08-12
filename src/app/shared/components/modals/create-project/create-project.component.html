@@ -1,0 +1,16 @@
+<div class="container">
+  <form (ngSubmit)="createProject()" class="create-project-form">
+    <ion-item class="title-input">
+      <ion-label position="floating">Title</ion-label>
+      <ion-input [formControl]="createProjectForm.get('title')"></ion-input>
+    </ion-item>
+    <!-- TODO: ADD COLOR PICKER -->
+
+    <div class="buttons">
+      <ion-button class="button create-button" expand="full" color="success" (click)="createProject()">
+        Create
+      </ion-button>
+      <ion-button class="button cancel-button" expand="full" color="danger" (click)="cancel()">Cancel</ion-button>
+    </div>
+  </form>
+</div>
