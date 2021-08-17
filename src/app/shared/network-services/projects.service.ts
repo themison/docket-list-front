@@ -15,4 +15,8 @@ export class ProjectsNetworkService {
   public createProject(title: string): Observable<ProjectModel> {
     return this.httpClient.post<ProjectModel>(URLS.projects.createProject, { title });
   }
+
+  public deleteProject(projectId: number): Observable<void> {
+    return this.httpClient.delete<void>(URLS.projects.baseProject(projectId));
+  }
 }

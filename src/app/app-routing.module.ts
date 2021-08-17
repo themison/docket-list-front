@@ -5,7 +5,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'docket-list/project-tasks',
+    redirectTo: 'docket-list',
     pathMatch: 'full',
   },
   {

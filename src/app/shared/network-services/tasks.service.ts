@@ -11,4 +11,16 @@ export class TasksNetworkService {
   public getTasksByProjectId(id: number): Observable<TaskModel[]> {
     return this.httpClient.get<TaskModel[]>(URLS.tasks.getTasks(id));
   }
+
+  public createTask(title: string, project: number): Observable<TaskModel[]> {
+    const body = {
+      title,
+      project,
+    };
+    return this.httpClient.post<TaskModel[]>(URLS.tasks.createTask, body);
+  }
+
+  public deleteTask(taskId: number): Observable<void> {
+    return this.httpClient.delete<void>(URLS.tasks.baseTask(taskId));
+  }
 }

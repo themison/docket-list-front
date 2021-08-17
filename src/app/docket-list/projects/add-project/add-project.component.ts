@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CreateProjectComponent } from 'src/app/shared/components/modals/create-project/create-project.component';
 
@@ -8,6 +8,8 @@ import { CreateProjectComponent } from 'src/app/shared/components/modals/create-
   styleUrls: ['./add-project.component.scss'],
 })
 export class AddProjectComponent implements OnInit {
+  @Output()
+  public refreshProjects = new EventEmitter<void>();
   constructor(private modalCtrl: ModalController) {}
 
   ngOnInit() {}
@@ -19,5 +21,11 @@ export class AddProjectComponent implements OnInit {
     });
 
     await modal.present();
+
+    modal.onWillDismiss().then((res) => {
+      if (res.role === 'created') {
+        this.refreshProjects.emit();
+      }
+    });
   }
 }

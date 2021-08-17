@@ -1,6 +1,6 @@
 <ion-list>
   <ng-container *ngFor="let project of projects">
-    <app-project-item [project]="project"></app-project-item>
+    <app-project-item [project]="project" (refreshProjects)="refreshProjects()"></app-project-item>
   </ng-container>
-  <app-add-project></app-add-project>
+  <app-add-project (refreshProjects)="refreshProjects()"></app-add-project>
 </ion-list>

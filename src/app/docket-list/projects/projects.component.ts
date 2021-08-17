@@ -14,6 +14,10 @@ export class ProjectsComponent implements OnInit {
   constructor(private projectsNetworkService: ProjectsNetworkService) {}
 
   ngOnInit() {
+    this.refreshProjects();
+  }
+
+  public refreshProjects(): void {
     this.getFolders();
   }
 

@@ -23,12 +23,7 @@ export class CreateProjectComponent implements OnInit {
 
   public createProject(): void {
     const title = this.createProjectForm.value.title;
-    console.log(title);
-    this.projectNetworkService.createProject(title).subscribe(() => this.modalCtrl.dismiss());
-  }
-
-  public test(): void {
-    console.log(this.createProjectForm.get('title'));
+    this.projectNetworkService.createProject(title).subscribe(() => this.modalCtrl.dismiss(null, 'created'));
   }
 
   public cancel(): void {

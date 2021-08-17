@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 import { ProjectModel } from 'src/app/shared/models/project.model';
+import { ProjectsNetworkService } from 'src/app/shared/network-services/projects.service';
 
 @Component({
   selector: 'app-project-item',
@@ -9,13 +11,23 @@ import { ProjectModel } from 'src/app/shared/models/project.model';
 })
 export class ProjectItemComponent implements OnInit {
   @Input()
-  project: ProjectModel;
+  public project: ProjectModel;
 
-  constructor(private router: Router) {}
+  @Output()
+  public refreshProjects = new EventEmitter<void>();
+
+  constructor(private router: Router, private projectNetworkService: ProjectsNetworkService) {}
 
   ngOnInit() {}
 
   public showTasks(): void {
     this.router.navigate([`docket-list/${this.project.id}`]);
+  }
+
+  public deleteProject(): void {
+    this.projectNetworkService
+      .deleteProject(this.project.id)
+      .pipe(first())
+      .subscribe(() => this.refreshProjects.emit());
   }
 }
