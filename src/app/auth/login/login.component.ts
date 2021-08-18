@@ -30,6 +30,10 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  public goToRegister(): void {
+    this.router.navigate([`${routes.auth}/${routes.register}`]);
+  }
+
   private initForm(): void {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],

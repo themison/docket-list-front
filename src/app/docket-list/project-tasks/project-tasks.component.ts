@@ -18,10 +18,20 @@ export class ProjectTasksComponent implements OnInit {
     private modalCtrl: ModalController,
     private tasksNetworkService: TasksNetworkService,
     private route: ActivatedRoute,
+    private router: Router,
   ) {}
 
   ngOnInit() {
-    this.route.url.subscribe((res: UrlSegment[]) => this.getProjectById(res[0].path));
+    this.route.url.subscribe((res: UrlSegment[]) => {
+      if (res[0]) {
+        this.getProjectById(res[0].path);
+      }
+    });
+  }
+
+  public logout(): void {
+    localStorage.removeItem('authToken');
+    this.router.navigateByUrl('/auth/login');
   }
 
   public async createTask(): Promise<void> {

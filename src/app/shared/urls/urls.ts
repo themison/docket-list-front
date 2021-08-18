@@ -13,5 +13,6 @@ export class URLS {
 
   public static auth = {
     login: 'api/account/login/',
+    register: 'api/account/register/',
   };
 }

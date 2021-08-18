@@ -5,20 +5,19 @@
   left: 50%;
   max-width: 600px;
   min-width: 300px;
-  height: 30%;
   transform: translate(-50%, -50%);
 }
 
-.login-form {
+.register-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  .login-input {
+  .register-input {
     width: 100%;
   }
 
-  .login-button {
+  .register-button {
     align-items: center;
     width: 300px;
     margin-top: 30px;
