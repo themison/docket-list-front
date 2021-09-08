@@ -6,6 +6,10 @@ import { ProjectTasksComponent } from './project-tasks/project-tasks.component';
 
 const routes: Routes = [
   {
+    path: 'pomodoro',
+    loadChildren: () => import('./pomodoro/pomodoro.module').then((m) => m.PomodoroPageModule),
+  },
+  {
     path: '',
     component: DocketListPage,
     children: [

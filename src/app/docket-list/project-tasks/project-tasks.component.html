@@ -10,7 +10,7 @@
 <ion-content>
   <ion-list>
     <ng-container *ngIf="tasks?.length">
-      <ion-item *ngFor="let task of tasks">
+      <ion-item *ngFor="let task of tasks" color="secondary">
         {{ task.title }}
         <ion-button fill="outline" color="success" slot="end" (click)="deleteTask(task.id)">Done</ion-button>
         <ion-button fill="outline" color="danger" slot="end" (click)="deleteTask(task.id)">Delete</ion-button>
